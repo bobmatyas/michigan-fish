@@ -9,7 +9,7 @@ function App() {
 
   useEffect(async () => {
     const result = await axios(
-      'https://data.michigan.gov/Environment/Michigan-Fish/he9h-7fpa',
+      'https://data.michigan.gov/resource/he9h-7fpa.json',
     );
 
     console.log(result.data);
