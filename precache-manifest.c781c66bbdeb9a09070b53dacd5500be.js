@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0874b5f1d490856edfbe9d5c9b3726b4",
+    "revision": "00aaf3ae8fecc261791d903ab3fbe308",
     "url": "/michigan-fish/index.html"
   },
   {
-    "revision": "ffeb7b3924aaf09e59dc",
+    "revision": "73c62d0b3f857c773693",
     "url": "/michigan-fish/static/css/main.2cce8147.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/michigan-fish/static/js/2.e50a068a.chunk.js"
   },
   {
-    "revision": "ffeb7b3924aaf09e59dc",
-    "url": "/michigan-fish/static/js/main.0b4e0e76.chunk.js"
+    "revision": "73c62d0b3f857c773693",
+    "url": "/michigan-fish/static/js/main.369b677e.chunk.js"
   },
   {
     "revision": "95992046f9605821a33a",
