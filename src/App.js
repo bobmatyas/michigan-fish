@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './App.scss';
 import axios from 'axios';
-import Hello from './components/hello.js';
 import Fish from './components/fish.js';
-
+import FishHeader from './components/header.js';
 
 function App() {
 
@@ -21,25 +20,66 @@ function App() {
 
     getFish();
 
-
-
-    
   }, []);
 
+
+  const sortA2Z = () => {
+    let sortedData = [...data];
+
+    sortedData.sort(function(a, b) {
+      var nameA = a.commonname.toUpperCase(); // ignore upper and lowercase
+      var nameB = b.commonname.toUpperCase(); // ignore upper and lowercase
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+    return 0;
+    });
+    setData(sortedData);
+  }
+
+  const sortZ2A = () => {
+    let sortedData = [...data];
+
+    sortedData.sort(function(a, b) {
+      var nameA = a.commonname.toUpperCase(); // ignore upper and lowercase
+      var nameB = b.commonname.toUpperCase(); // ignore upper and lowercase
+      if (nameB < nameA) {
+        return -1;
+      }
+      if (nameB > nameA) {
+        return 1;
+      }
+    return 0;
+    });
+    setData(sortedData);
+  }
+
   return (
-    <div className="App">
-      <header className="header">
-
-        <Hello />
-      </header>
-      <div>
+    <div className="holder">
+      <FishHeader />
+      <main>
+        <div>
+          <select>
+            <option></option>
+            <option onClick={()=> sortA2Z()}>A-Z</option>
+            <option onClick={()=> sortZ2A()}>Z-A</option>
+          </select>
+        </div>
+        <div>
         {data.map(item => (
-
-<Fish key={item.id} name={item.commonname} latin={item.latinname} />
-
+          <Fish 
+            key={item.id} 
+            name={item.commonname} 
+            latin={item.latinname} 
+            description={item.narrative}
+            image={item.imageurl} 
+          />
         ))}
-      </div>
-      <Fish />
+        </div>
+      </main>
     </div>
   );
 }
