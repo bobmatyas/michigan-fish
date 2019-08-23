@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/michigan-fish/precache-manifest.b4ffbfc83536e4d554b0968e7c7b78d8.js"
+  "/michigan-fish/precache-manifest.0f1995247c34ebf29b6773546b9d298c.js"
 );
 
 self.addEventListener('message', (event) => {
