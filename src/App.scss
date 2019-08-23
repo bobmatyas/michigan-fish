@@ -1,3 +1,60 @@
+$cardImageBgColor: #fffefa;
+
+html {
+  font-size: 10px;
+}
+
 body {
+  background-attachment: fixed;
+  background-position: contain;
   background-image: url('./img/bg-water.jpg');
+}
+
+.fish__grid {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-column-gap: 100px;
+  grid-row-gap: 100px;
+  align-items: top;
+  justify-items: center;
+  margin: 0 3%;
+  padding: 0;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  width: 350px;
+}
+
+.card__bg {
+  background-color: $cardImageBgColor;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-bottom: 1px solid #eee;
+  height: 200px;
+  padding: 0 10px;
+}
+
+.card__header {
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 500;
+}
+
+.card__latin {
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 1.5rem;
+}
+
+.card__info {
+  padding: 25px 40px;
+}
+
+.card__text {
+  font-family: 'Merriweather', serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.6;
 }

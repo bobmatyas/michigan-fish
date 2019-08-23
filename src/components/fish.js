@@ -2,18 +2,22 @@ import React from 'react';
 
 export const Fish = ({name, description, latin, image}) => {
 
+  console.log(image);
   return (
-    <div className="fish">
-        <h2 className="fish__header">{name}</h2>
+    <div className="card">
+      <div className="card__bg"
+        style={{ backgroundImage: `url("${image}")` }}
+      >
+      </div>
+      <div className="card__info">
+        <h2 className="card__header">{name}</h2>
         { latin ?  
-          <p><strong>Latin Name:</strong> {latin} </p>
+          <p className="card__latin"><i>Latin Name: {latin} </i></p>
           : null
         }
-        { image ?
-          <img src={image} alt={name} />
-          : null 
-        }
-        <p>{description}</p>
+        
+        <p className="card__text">{description}</p>
+      </div>
     </div>
     )
 }
