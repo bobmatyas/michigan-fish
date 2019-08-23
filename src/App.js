@@ -1,37 +1,45 @@
 import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 import axios from 'axios';
 import Hello from './components/hello.js';
+import Fish from './components/fish.js';
 
 
 function App() {
 
-  useEffect(async () => {
-    const result = await axios(
-      'https://data.michigan.gov/resource/he9h-7fpa.json',
-    );
+  const [data, setData] = useState([]);
 
-    console.log(result.data);
-  });
+  useEffect( () => {
+    
+    const getFish = async () => {
+      const result = await axios(
+        'https://data.michigan.gov/resource/he9h-7fpa.json',
+      );
+      console.log(result.data);
+      setData(result.data);
+    }
+
+    getFish();
+
+
+
+    
+  }, []);
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+      <header className="header">
+
         <Hello />
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
+      <div>
+        {data.map(item => (
+
+<Fish key={item.id} name={item.commonname} latin={item.latinname} />
+
+        ))}
+      </div>
+      <Fish />
     </div>
   );
 }
