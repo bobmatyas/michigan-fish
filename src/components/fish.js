@@ -2,7 +2,6 @@ import React from 'react';
 
 export const Fish = ({name, description, latin, image}) => {
 
-  console.log(image);
   return (
     <div className="card">
       <div className="card__bg"

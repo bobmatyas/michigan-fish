@@ -14,7 +14,6 @@ function App() {
       const result = await axios(
         'https://data.michigan.gov/resource/he9h-7fpa.json',
       );
-      console.log(result.data);
       setData(result.data);
     }
 
@@ -23,7 +22,9 @@ function App() {
   }, []);
 
 
-  const sortAz = (order) => {
+  const sortAz = () => {
+    const order = document.getElementById('sort').value
+    
     let sortedData = [...data];
 
     sortedData.sort(function(a, b) {
@@ -52,15 +53,19 @@ function App() {
  
   return (
     <div className="holder">
-      <FishHeader />
-      <main>
-        <div>
-          <select>
+      <header className="header">
+        <FishHeader />
+        
+        <div className="header__sortbox">
+          Sort: 
+          <select id="sort" onChange={  () => sortAz() } className="header__sortbox__select">
             <option></option>
-            <option onClick={()=> sortAz('a')}>A-Z</option>
-            <option onClick={()=> sortAz('z')}>Z-A</option>
+            <option value="a">A-Z</option>
+            <option value="z">Z-A</option>
           </select>
         </div>
+      </header>
+      <main>
         <div className="fish__grid">
         {data.map(item => (
           <Fish 
